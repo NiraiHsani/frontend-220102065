@@ -1,6 +1,6 @@
 # 🎯 FrontEnd Sistem Cuti Mahasiswa
 
-Proyek ini adalah integrasi **Laravel (Frontend)** dan **CodeIgniter 4 (Backend API)** untuk menampilkan dan mengelola data **User** dan **Kelas**. Project UAS Mata Kuliah PBF (Pemrograman Berbasis Framework) oleh Nira Ihsani Hanifah (220102065)
+Proyek ini adalah integrasi **Laravel (Frontend)** dan **CodeIgniter 4 (Backend API)** untuk menampilkan dan mengelola data **Mahasiswa** dan **Dosen**. Project UAS Mata Kuliah PBF (Pemrograman Berbasis Framework) oleh Nira Ihsani Hanifah (220102065)
 
 ---
 
