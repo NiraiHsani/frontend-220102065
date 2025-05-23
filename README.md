@@ -243,3 +243,5 @@ Buka di browser:
 ```
 http://127.0.0.1:8000/mahasiswa
 ```
+
+! Proyek ini belum sepenuhnya jadi, dan masih dalam proses (belum lengkap)
