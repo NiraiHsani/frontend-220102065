@@ -1,61 +1,245 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎯 FrontEnd Sistem Cuti Mahasiswa
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Proyek ini adalah integrasi **Laravel (Frontend)** dan **CodeIgniter 4 (Backend API)** untuk menampilkan dan mengelola data **User** dan **Kelas**. Project UAS Mata Kuliah PBF (Pemrograman Berbasis Framework) oleh Nira Ihsani Hanifah (220102065)
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🧱 PERSYARATAN
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Pastikan kamu sudah menyiapkan:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- ✅ Laragon (untuk server lokal)
+- ✅ PHP versi 8.3
+- ✅ Composer & Git
+- ✅ phpMyAdmin
+- ✅ Text editor (seperti VS Code)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🚀 LANGKAH-LANGKAH SETUP
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📦 1. CLONE DAN JALANKAN BACKEND (CODEIGNITER 4)
 
-## Laravel Sponsors
+#### 🔧 1.1 Buat folder backend
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+cd D:
+mkdir backend
+cd backend
+```
 
-### Premium Partners
+#### ⬇️ 1.2 Clone project backend
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+git clone https://github.com/Alledanaralle/PBF backend-uas-220102065
+```
 
-## Contributing
+#### ⚙️ 1.3 Install dependency
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer install
+```
 
-## Code of Conduct
+#### 🛠️ 1.4 Copy file `.env`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp env .env
+```
 
-## Security Vulnerabilities
+Edit file `.env` untuk koneksi database:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+database.default.hostname = localhost
+database.default.database = data_uas_220102065
+database.default.username = root
+database.default.password =
+```
 
-## License
+#### 🗃️ 1.5 Import database ke phpMyAdmin
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Download SQL file:  
+   https://github.com/andinardelinaa/database
+   Nama file: `data_uas_220102065.sql`
+
+2. Buka `http://localhost/phpmyadmin`
+
+3. Buat database baru dengan nama: `data_uas_220102065`
+
+4. Klik **Import** dan upload file `data_uas_220102065.sql`
+
+#### ▶️ 1.6 Jalankan backend (masuk & sesuaikan ke folder backend)
+
+```bash
+cd D:/backend/backend-uas-220102065
+php spark serve
+```
+
+Buka di browser:
+
+```
+http://localhost:8080
+```
+
+Coba buka endpoint:
+
+- `http://localhost:8080/mahasiswa`
+- `http://localhost:8080/dosen`
+---
+
+#### 🧪 1.7 PENGUJIAN DENGAN POSTMAN
+
+Setelah frontend dan backend berhasil dihubungkan, lakukan pengujian API menggunakan **Postman** untuk memastikan endpoint bekerja dengan benar.
+
+#### 📁 A. ENDPOINT MAHASISWA
+
+| Metode | Endpoint                                 | Keterangan             |
+|--------|------------------------------------------|------------------------|
+| GET    | `http://localhost:8080/mahasiswa`            | Ambil semua data mahasiswa |
+| POST   | `http://localhost:8080/mahasiswa`            | Tambah data mahasiswa baru |
+| PUT    | `http://localhost:8080/mahasiswa/{npm}` | Update data mahasiswa      |
+| DELETE | `http://localhost:8080/mahasiswa/{npm}` | Hapus data mahasiswa       |
+
+---
+
+#### 👤 B. ENDPOINT DOSEN
+
+| Metode | Endpoint                                | Keterangan            |
+|--------|-----------------------------------------|-----------------------|
+| GET    | `http://localhost:8080/dosen`            | Ambil semua data dosen |
+| POST   | `http://localhost:8080/dosen`            | Tambah data dosen baru |
+| PUT    | `http://localhost:8080/dosen/{nidn}`  | Update data dosen      |
+| DELETE | `http://localhost:8080/dosen/{nidn}`  | Hapus data dosen       |
+
+
+#### ⚠️ Catatan:
+
+- Pastikan backend (`php spark serve`) **dalam keadaan aktif**
+- Gunakan `Headers` di Postman:
+  - `Content-Type: application/json`
+- Gunakan metode HTTP yang sesuai: **GET, POST, PUT, DELETE**
+
+---
+
+
+### 🖥️ 2. SETUP FRONTEND (LARAVEL)
+
+#### 📁 2.1 Buat folder frontend
+
+```bash
+cd D:
+laravel new frontend
+cd frontend
+```
+
+---
+
+## 🖥️ 2. SETUP FRONTEND (LARAVEL)
+
+### 📌 2.1 Buat Folder Laravel Frontend di Laragon
+
+Pastikan kamu sudah menginstal **Laragon** dan Laravel versi terbaru. Proses ini akan membuat folder `frontend` di direktori `laragon/www`.
+
+#### ✅ Langkah-langkah:
+
+1. **Buka Laragon**, lalu klik menu **Terminal**.
+
+2. Jalankan perintah di bawah ini untuk masuk ke folder `www`:
+
+```bash
+cd C:\laragon\www
+```
+
+3. **Buat project Laravel baru dengan nama `frontend-uas-220102065`**:
+
+```bash
+laravel new frontend
+```
+
+> Jika perintah `laravel` tidak dikenali, kamu bisa gunakan Composer:
+```bash
+composer create-project laravel/laravel frontend
+```
+
+---
+
+### 🚀 2.2 Jalankan Laravel Frontend
+
+Jalankan server Laravel lokal:
+
+```bash
+php artisan serve
+```
+
+Buka di browser:
+
+```
+http://localhost:8000
+```
+
+---
+
+### 🛠️ Tips:
+
+- Jika kamu ingin membuka folder Laravel langsung di Visual Studio Code:
+
+```bash
+code .
+```
+---
+
+## 🖥️ 2. SETUP FRONTEND (LARAVEL)
+
+### 📦 2.1 Lokasi Folder Laravel Frontend
+
+#### ✅ **Instal Laravel di drive lain (misalnya `D:\`)**
+
+1. Buka Command Prompt atau Terminal biasa:
+```bash
+cd D:\
+composer create-project laravel/laravel frontend-uas-220102065
+```
+
+> Pastikan sudah menginstal Composer dan Laravel Global jika tidak memakai Laragon.
+
+---
+
+### 🧱 2.2 Struktur dan Pembuatan Komponen Frontend
+
+#### 🛠️ Buat Controller
+
+```bash
+php artisan make:controller MahasiswaController
+php artisan make:controller DosenController
+```
+
+#### 🛠️ Buat View (dalam `resources/views/`)
+
+Contoh membuat file view:
+```bash
+cd resources/views
+mkdir mahasiswa
+mkdir dosen
+# atau bisa membuat manual dengan klik kanan 'New Folder'/ 'New File'
+```
+
+
+#### ⚙️ 2.3 Generate app key
+
+```bash
+composer install
+php artisan key:generate
+```
+
+---
+
+### 🧩 3. BUAT ROUTE, CONTROLLER, DAN VIEW
+
+### 🧩 4. Running Projek Laravel
+```bash
+php artisan serve 
+```
+Buka di browser:
+```
+http://127.0.0.1:8000/mahasiswa
+```
